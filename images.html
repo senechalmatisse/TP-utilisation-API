@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Service d'images</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+        #erreur {
+            color: red;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 289px auto;
+        }
+
+        main section {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid grey;
+        }
+
+        #resultats img {
+            display: block;
+            float: left;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        #carte {
+            height: 500px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid grey;
+        }
+
+        .leaflet-popup-content-wrapper figure {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+    </style>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="images.js"></script>
+</head>
+<body>
+    <h1>Recherche d'images chez Flickr</h1>
+    <section>
+        <form id="recherche">
+            <fieldset>
+                <legend>Chercher par mots-clés </legend>
+                <p>Séparer les mots-clés par une virgule</p>
+                <label>Mots-clés <input type="text" name="mots" id="mots"></label>
+                <input type="submit" value="Rechercher par mots clés Flickr">
+                <span id="erreur"></span>
+            </fieldset>
+        </form>
+    </section>
+    <main>
+        <section id="resultats"></section>
+        <section id="details"></section>
+    </main>
+    <div id="carte"></div>
+    <script>
+        "use strict";
+        init();
+    </script>
+</body>
+</html>
